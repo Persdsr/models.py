@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="errors"><span>{{ form.non_errors }}</span></div>
+    {% for i in form %}
+        <p><label for="{{ for_label_id }}">{{ i.label }}</label>{{ i }}</p>
+        <div class="errors">{{ i.errors }}</div>
+    {% endfor %}
+    <button class="button-in btn btn-dark">Войти</button>
+</form>
+{% endblock %}
